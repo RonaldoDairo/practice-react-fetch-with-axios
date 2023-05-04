@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { allCharacters } from '../functions/function'
 const Home = () => {
-  const [character, setCharacter] = useState(null);
-
+  const [characters, setCharacters] = useState(null);
   useEffect(() => {
-    allCharacters(setCharacter)
+    allCharacters(setCharacters)
+    
+
   }, []);
 
   return (
     <>
-      {character != null ? (
-        character.map(character=>(
+      {characters != null ? (
+        characters.map(character=>(
+         // character.id === 1 && para obtener solo un id en concreto
         <div key={character.id}>
-          <a href=''>{character.name}</a>
+          
+          <a href={`/character/${character.id}`}>{character.name}</a>
+          
         </div>
       ))
       ): ('no hay personajes')}
