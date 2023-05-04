@@ -1,9 +1,17 @@
-import {BrowserRouter, Router, Route} from 'react-router-dom'
-
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Home from './components/home'
+import Character from './components/character'
 function App() {
   return (
-    <div className="App">
-     
+    <div className="container">
+     <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Home></Home>}/>
+            <Route path='character/:id' element={<Character></Character>}/>
+
+          </Routes>
+
+     </BrowserRouter>
      
     </div>
   );
